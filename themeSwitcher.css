@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: background 100ms ease-in, color 500ms ease;
+}
+
+a {
+    color: currentColor;
+    text-decoration: none;
+}
+
+nav.nav-bar {
+    width: 100%;
+    height: 75px;
+    background: var(--bg-nav);
+    color: var(--text);
+}
+
+ul.nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* create the drop-down with css */
+.drop {
+    position: absolute;
+    width: 500px;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: var(--bg-drop-down);
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--bg-border-color);
+    z-index: 2;
+    transform: translateX(-40%);
+    visibility: hidden;
+    transition: visibility 0.5s ease-in-out;
+}
+
+.has-drop:focus-within .drop {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.dropItem a::before {
+    content: '';
+    position: relative;
+    display: inline-block;
+    width: 1em;
+    height: 1rem;
+    border-radius: 50%;
+    padding: 2px;
+    margin-right: 5px;
+    border: 2px solid var(--bg-border-color);
+    vertical-align: middle;
+}
+
+header {
+    width: 100%;
+    height: 600px;
+    background: var(--bg-nav);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 90px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 45%, 68.61% 98.57%, 11.12% 56.43%);
+}
+
+header img#logo {
+    position: relative;
+    /* top: -90px; */
+    width: 700px;
+    height: 450px;
+    transform: translateX(25%);
+}
+
+header h1,
+header p {
+    position: relative;
+    /* top: -90px; */
+    transform: translateX(55%);
+}
+
+header p {
+    transform: translateX(155%);
+}
+
+section {
+    padding: 60px;
+    font-size: 16px;
+    line-height: 1.7em;
+}
+
+/* Theme */
+
+:root {
+    --gray0: #f8f8f8;
+    --gray1: #dbe1e8;
+    --gray2: #b2becd;
+    --gray3: #6c7983;
+    --gray4: #454e56;
+    --gray5: #2a2e35;
+    --gray6: #12181b;
+    --blue: #0084a5;
+    --purple: #a82dd1;
+    --yellow: #fff565;
+}
+
+.light {
+    --bg: var(--gray1);
+    --bg-nav: linear-gradient(to right, var(--gray1), var(--gray3));
+    --bg-drop-down: var(--gray1);
+    --text: var(--gray6);
+    --bg-border-color: var(--blue);
+    --bg-solar: var(--yellow);
+}
+
+.dark {
+    --bg: var(--gray5);
+    --bg-nav: linear-gradient(to right, var(--gray4), var(--gray6));
+    --bg-drop-down: var(--gray5);
+    --text: var(--gray0);
+    --bg-border-color: var(--purple);
+    --bg-solar: var(--blue);
+}
+
+.solar {
+    --gray0: #fbffd4;
+    --gray1: #f7f8d0;
+    --gray2: #b6f880;
+    --gray3: #5ec72d;
+    --gray4: #3ea565;
+    --gray5: #005368;
+    --gray6: #003d4c;
+}
+
+#light:before {
+    background: #fff;
+}
+
+#dark:before {
+    background: #2a2e35;
+}
+
+#solar:before {
+    background: var(--bg-solar);
+}
+
+
+/* animate the logo */
+
+img#logo:hover {
+    animation: anime 1s ease-in 0s infinite alternate;
+}
+
+@keyframes anime {
+    from {
+        filter: hue-rotate(0deg);
+    }
+
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
