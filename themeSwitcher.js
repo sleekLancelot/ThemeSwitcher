@@ -43,6 +43,8 @@ solarBTN.onclick = () => {
     } else {
         body.classList.add('solar');
         solarBTN.innerText = 'normalize';
+
+        //this didn't work
         //     solarBTN.style.cssText = `
         //     --bg-solar = white;
         // `
